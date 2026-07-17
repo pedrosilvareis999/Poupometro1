@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: "Blog"
+description: "Todos os guias de poupança do Poupómetro: eletricidade, gás, combustível, supermercado e dicas gerais de orçamento."
+permalink: "blog.html"
+---
+<section class="article-head">
+  <div class="wrap">
+    <span class="eyebrow">O blog</span>
+    <h1>Todos os guias</h1>
+    <p class="lead">Quatro áreas, um objetivo: sobrar mais dinheiro no fim do mês sem grandes sacrifícios.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px;">
+  <div class="wrap">
+    <div class="post-grid">
+      {% for a in collections.articles %}
+      <a href="/{{ a.data.slug }}.html" class="post-card">
+        <div class="stamp {{ a.data.stamp_color }}"><span class="num">{{ a.data.stamp_number }}</span><span class="cap">{{ a.data.stamp_label }}</span></div>
+        <div class="body">
+          <span class="cat">{{ a.data.category }}</span>
+          <h3>{{ a.data.title }}</h3>
+          <p>{{ a.data.excerpt }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Falta algum tema?</h2>
+    <p>Este blog cresce mês a mês. Comece pelas 4 grandes despesas e vá voltando para mais guias.</p>
+    <a href="/" class="btn btn-primary">Voltar ao início</a>
+  </div>
+</section>

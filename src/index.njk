@@ -1,0 +1,110 @@
+---
+layout: base.njk
+title: "Poupómetro — poupança à portuguesa"
+description: "Guias práticos sobre as maiores despesas das famílias portuguesas: eletricidade, gás, combustível e compras do supermercado."
+permalink: "index.html"
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">{{ site.hero_eyebrow }}</span>
+      <h1>{{ site.hero_title_line1 }}<br><em>{{ site.hero_title_em }}</em> {{ site.hero_title_rest }}</h1>
+      <p class="lead">{{ site.hero_lead }}</p>
+      <div class="hero-ctas">
+        <a href="#categorias" class="btn btn-primary">Ver as 4 grandes despesas</a>
+        <a href="/blog.html" class="btn btn-ghost">Ler o blog</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 320 260" width="100%" height="220" aria-hidden="true">
+        <path d="M50 190A110 110 0 0 1 105 94.7" fill="none" stroke="#9C4127" stroke-width="11" stroke-linecap="round"/>
+        <path d="M105 94.7A110 110 0 0 1 215 94.7" fill="none" stroke="#C1901F" stroke-width="11" stroke-linecap="round"/>
+        <path d="M215 94.7A110 110 0 0 1 270 190" fill="none" stroke="#1F5C6E" stroke-width="11" stroke-linecap="round"/>
+        <g stroke="#2B2419" stroke-width="2.5" stroke-linecap="round">
+          <line x1="50" y1="190" x2="65" y2="190"/>
+          <line x1="77.7" y1="142.5" x2="64.7" y2="135"/>
+          <line x1="112.5" y1="107.7" x2="105" y2="94.7"/>
+          <line x1="160" y1="95" x2="160" y2="80"/>
+          <line x1="207.5" y1="107.7" x2="215" y2="94.7"/>
+          <line x1="242.3" y1="142.5" x2="255.3" y2="135"/>
+          <line x1="255" y1="190" x2="270" y2="190"/>
+        </g>
+        <line x1="160" y1="190" x2="220" y2="130" stroke="#2B2419" stroke-width="4.5" stroke-linecap="round"/>
+        <circle cx="160" cy="190" r="10" fill="#F5EFE1" stroke="#2B2419" stroke-width="3"/>
+        <text x="160" y="222" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="26" fill="#123842">{{ site.gauge_value }}</text>
+        <text x="160" y="242" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1" fill="#5C5240">{{ site.gauge_label }}</text>
+      </svg>
+      <div class="stamp floating-stamp" style="top:0;left:0;">
+        <span class="num">{{ site.stamp_1_number }}</span>
+        <span class="cap">{{ site.stamp_1_label }}</span>
+      </div>
+      <div class="stamp blue floating-stamp s2" style="bottom:6px;right:0;">
+        <span class="num">{{ site.stamp_2_number }}</span>
+        <span class="cap">{{ site.stamp_2_label }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="categorias">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">As 4 grandes despesas</span>
+      <h2>Onde o dinheiro escapa por entre os dedos</h2>
+      <p>Escolha a área e comece a poupar já hoje, com passos concretos e fáceis de aplicar.</p>
+    </div>
+    <div class="tile-grid">
+      {% for a in collections.articles %}
+      <a href="/{{ a.data.slug }}.html" class="tile">
+        <h3>{{ a.data.category }}</h3>
+        <p>{{ a.data.excerpt }}</p>
+        <span class="go">Ler guia →</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="stat-band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="color:#F0C75E;">{{ site.stat_eyebrow }}</span>
+      <h2>{{ site.stat_title }}</h2>
+      <p>{{ site.stat_text }}</p>
+    </div>
+    <div class="stat-grid">
+      {% for s in site.stats %}
+      <div class="stat"><div class="num">{{ s.value }}</div><div class="label">{{ s.label }}</div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Do blog</span>
+      <h2>Últimos guias</h2>
+    </div>
+    <div class="post-grid">
+      {% for a in collections.articles %}
+      <a href="/{{ a.data.slug }}.html" class="post-card">
+        <div class="stamp {{ a.data.stamp_color }}"><span class="num">{{ a.data.stamp_number }}</span><span class="cap">{{ a.data.stamp_label }}</span></div>
+        <div class="body">
+          <span class="cat">{{ a.data.category }}</span>
+          <h3>{{ a.data.title }}</h3>
+          <p>{{ a.data.excerpt }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>{{ site.cta_title }}</h2>
+    <p>{{ site.cta_text }}</p>
+    <a href="/blog.html" class="btn btn-primary">Explorar o blog</a>
+  </div>
+</section>

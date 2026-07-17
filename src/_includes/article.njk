@@ -1,0 +1,56 @@
+---
+layout: base.njk
+---
+<section class="article-head">
+  <div class="wrap">
+    <span class="eyebrow">{{ category }}</span>
+    <h1>{{ title }}</h1>
+    <p class="lead">{{ intro }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="article-body">
+
+      {% if imagem %}
+      <img src="{{ imagem }}" alt="{{ title }}" style="width:100%;border:1px solid var(--line);margin-bottom:8px;border-radius:2px;">
+      {% endif %}
+
+      <div class="stamp {{ stamp_color }} stamp-inline"><span class="num">{{ stamp_number }}</span><span class="cap">{{ stamp_label }}</span></div>
+
+      {% for section in sections %}
+      <h2><span class="idx">{{ loop.index | pad2 }}</span>{{ section.titulo }}</h2>
+      {{ section.corpo | markdownify | safe }}
+      {% if loop.index == 1 and citacao %}
+      <div class="pull">"{{ citacao }}"</div>
+      {% endif %}
+      {% endfor %}
+
+      {% if talao_items and talao_items.length %}
+      <div class="talao">
+        <h4>{{ talao_titulo }}</h4>
+        <ul>
+          {% for item in talao_items %}
+          <li><span class="desc">{{ item.descricao }}</span><span class="val">{{ item.valor }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+    </div>
+
+    <div class="article-foot">
+      <div style="width:100%;">
+        <span class="eyebrow">Continue a poupar</span>
+        <div class="next-cards">
+          {% for other in collections.articles %}
+          {% if other.data.slug != slug %}
+          <a href="/{{ other.data.slug }}.html" class="next-card"><span class="cat">{{ other.data.category }}</span><h4>{{ other.data.title }}</h4></a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

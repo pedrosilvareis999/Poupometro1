@@ -1,0 +1,88 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images"
+public_folder: "/images"
+
+publish_mode: simple
+
+collections:
+  - name: "artigos"
+    label: "Artigos do Blog"
+    label_singular: "Artigo"
+    folder: "src/articles"
+    create: true
+    slug: "{{fields.slug}}"
+    extension: "md"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Descrição para motores de busca (SEO)", name: "description", widget: "text" }
+      - label: "Categoria"
+        name: "category"
+        widget: "select"
+        options: ["Eletricidade & Gás", "Combustível", "Supermercado", "Dicas Gerais"]
+      - { label: "Slug (usado no endereço do artigo, sem espaços nem acentos)", name: "slug", widget: "string" }
+      - { label: "Ordem de aparição no site", name: "order", widget: "number", default: 1, value_type: "int" }
+      - { label: "Tag interna (não alterar)", name: "tags", widget: "hidden", default: "articles" }
+      - { label: "Introdução (parágrafo por baixo do título)", name: "intro", widget: "text" }
+      - { label: "Resumo curto (aparece nos cartões do blog e da homepage)", name: "excerpt", widget: "text" }
+      - { label: "Imagem de destaque (opcional)", name: "imagem", widget: "image", required: false }
+      - { label: "Carimbo — número/percentagem", name: "stamp_number", widget: "string", default: "-10%" }
+      - { label: "Carimbo — legenda", name: "stamp_label", widget: "string", default: "poupança possível" }
+      - label: "Carimbo — cor"
+        name: "stamp_color"
+        widget: "select"
+        default: ""
+        options:
+          - { label: "Vermelho (padrão)", value: "" }
+          - { label: "Azul", value: "blue" }
+          - { label: "Mostarda", value: "mustard" }
+      - label: "Secções do artigo"
+        name: "sections"
+        widget: "list"
+        summary: "{{fields.titulo}}"
+        fields:
+          - { label: "Título da secção", name: "titulo", widget: "string" }
+          - { label: "Texto da secção", name: "corpo", widget: "markdown" }
+      - { label: "Frase em destaque (citação, opcional)", name: "citacao", widget: "string", required: false }
+      - { label: "Título da lista de dicas (opcional)", name: "talao_titulo", widget: "string", required: false }
+      - label: "Lista de dicas (formato talão)"
+        name: "talao_items"
+        widget: "list"
+        required: false
+        summary: "{{fields.descricao}}"
+        fields:
+          - { label: "Descrição", name: "descricao", widget: "string" }
+          - { label: "Valor / resultado", name: "valor", widget: "string" }
+
+  - name: "pagina_inicial"
+    label: "Página Inicial"
+    files:
+      - label: "Conteúdo da Página Inicial"
+        name: "home"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Texto pequeno por cima do título", name: "hero_eyebrow", widget: "string" }
+          - { label: "Título — 1ª linha", name: "hero_title_line1", widget: "string" }
+          - { label: "Título — palavra em destaque (itálico)", name: "hero_title_em", widget: "string" }
+          - { label: "Título — resto da frase", name: "hero_title_rest", widget: "string" }
+          - { label: "Parágrafo de introdução", name: "hero_lead", widget: "text" }
+          - { label: "Valor no mostrador (ilustração)", name: "gauge_value", widget: "string" }
+          - { label: "Legenda do mostrador", name: "gauge_label", widget: "string" }
+          - { label: "Carimbo flutuante 1 — número", name: "stamp_1_number", widget: "string" }
+          - { label: "Carimbo flutuante 1 — legenda", name: "stamp_1_label", widget: "string" }
+          - { label: "Carimbo flutuante 2 — número", name: "stamp_2_number", widget: "string" }
+          - { label: "Carimbo flutuante 2 — legenda", name: "stamp_2_label", widget: "string" }
+          - { label: "Texto pequeno da secção de estatísticas", name: "stat_eyebrow", widget: "string" }
+          - { label: "Título da secção de estatísticas", name: "stat_title", widget: "string" }
+          - { label: "Texto da secção de estatísticas", name: "stat_text", widget: "text" }
+          - label: "Estatísticas (os 4 números grandes)"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.value}}"
+            fields:
+              - { label: "Valor", name: "value", widget: "string" }
+              - { label: "Legenda", name: "label", widget: "string" }
+          - { label: "Título da chamada final (CTA)", name: "cta_title", widget: "string" }
+          - { label: "Texto da chamada final (CTA)", name: "cta_text", widget: "text" }
