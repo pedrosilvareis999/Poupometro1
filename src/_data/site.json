@@ -1,24 +1,36 @@
 {
-  "hero_eyebrow": "Poupança à portuguesa",
-  "hero_title_line1": "Mede a poupança.",
-  "hero_title_em": "Sobe",
   "hero_title_rest": "o ponteiro.",
-  "hero_lead": "O Poupómetro junta guias diretos, sem enrolação, sobre as despesas que mais pesam no orçamento das famílias portuguesas: luz, gás, combustível e o talão do supermercado. Cada hábito novo é mais um ponto a favor no mostrador.",
-  "gauge_value": "+23%",
-  "gauge_label": "POUPANÇA POSSÍVEL / MÊS",
-  "stamp_1_number": "-18%",
-  "stamp_1_label": "na luz",
-  "stamp_2_number": "-12%",
-  "stamp_2_label": "no combustível",
-  "stat_eyebrow": "Ordens de grandeza",
-  "stat_title": "Quanto pode mesmo poupar",
-  "stat_text": "Valores indicativos, com base nos hábitos mais comuns das famílias portuguesas — o resultado real depende sempre do ponto de partida de cada casa.",
-  "stats": [
-    { "value": "até 20%", "label": "na fatura da luz, só ajustando tarifário e potência contratada" },
-    { "value": "até 15%", "label": "em combustível, com condução mais suave e comparação de preços" },
-    { "value": "até 25%", "label": "no talão do supermercado, trocando marca por marca branca" },
-    { "value": "3 meses", "label": "é o tempo médio para sentir a diferença de um orçamento simples" }
-  ],
+  "hero_lead": "O Poupómetro junta guias diretos, sem perderes tempo, sobre as despesas que mais pesam no orçamento das famílias portuguesas: luz, gás, combustível e o talão do supermercado. Cada hábito novo é mais um ponto a favor no mostrador.",
+  "hero_eyebrow": "Poupança à portuguesa",
   "cta_title": "Ainda não sabe por onde começar?",
-  "cta_text": "O blog tem guias passo-a-passo para cada despesa da casa. Escolha um e comece hoje mesmo."
+  "stamp_1_label": "na luz",
+  "stamp_2_label": "no combustível",
+  "gauge_value": "+23%",
+  "stat_title": "Quanto pode mesmo poupar",
+  "gauge_label": "POUPANÇA POSSÍVEL / MÊS",
+  "hero_title_line1": "Mede a poupança.",
+  "stamp_2_number": "-12%",
+  "stamp_1_number": "-18%",
+  "hero_title_em": "Sobe",
+  "stat_text": "Valores indicativos, com base nos hábitos mais comuns das famílias portuguesas — o resultado real depende sempre do ponto de partida de cada casa.",
+  "cta_text": "O blog tem guias passo-a-passo para cada despesa da casa. Escolha um e comece hoje mesmo.",
+  "stat_eyebrow": "Ordens de grandeza",
+  "stats": [
+    {
+      "value": "até 20%",
+      "label": "na fatura da luz, só ajustando tarifário e potência contratada"
+    },
+    {
+      "value": "até 15%",
+      "label": "em combustível, com condução mais suave e comparação de preços"
+    },
+    {
+      "value": "até 25%",
+      "label": "no talão do supermercado, trocando marca por marca branca"
+    },
+    {
+      "value": "3 meses",
+      "label": "é o tempo médio para sentir a diferença de um orçamento simples"
+    }
+  ]
 }
